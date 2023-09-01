@@ -41,13 +41,17 @@ pip install torch==1.4.0 torchvision==0.5.0
 
 You should first train the model on the clean datasets. The model will be saved to `models/<dataset>_<arch>_<n-bits>_backdoor`.
 
->> python train.py --arch vgg11 --dataset imagenet --n-bits 48 --gpu-id 0
+```shell
+python train.py --arch vgg11 --dataset imagenet --n-bits 48 --gpu-id 0
+```
 
 ### Generate the trigger pattern
 
 The trigger pattern will be saved to `<path>/<target_label>/<trigger_size>`. We have provided five target labels and the trigger pattern in our experiments.
 
->> python generate_trigger_pattern.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --trigger_size 24 --target_label yurt --gpu-id 0
+```shell
+python generate_trigger_pattern.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --trigger_size 24 --target_label yurt --gpu-id 0
+```
 
 ### Backdoor attack
 
@@ -57,17 +61,28 @@ Four backdoor attacks in our paper can be run as follows.
 
 - "Tri"
 
->> python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert non --gpu-id 0
+```shell
+python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert non --gpu-id 0
+```
 
 - "Tri+Noise"
 
->> python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert noise --gpu-id 0
+```shell
+python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert noise --gpu-id 0
+```
 
 - "Tri+Adv"
 
->> python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert confusing --clambda 0 --gpu-id 0
+```shell
+python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert confusing --clambda 0 --gpu-id 0
+```
 
 - "CIBA"
 
->> python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert confusing --clambda 0.8 --gpu-id 0
+```shell
+python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert confusing --clambda 0.8 --gpu-id 0
+```
 
+## Acknowledgements
+
+This respository is mainly based on [DTHA](https://github.com/jiawangbai/DHTA-master). Thanks for their wonderful works!
