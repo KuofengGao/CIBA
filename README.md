@@ -83,6 +83,17 @@ python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 
 python backdoor_attack.py --path models/imagenet_vgg11_48_backdoor --arch vgg11 --dataset imagenet --n-bits 48 --poison_num 60 --trigger_size 24 --target_label yurt --pert confusing --clambda 0.8 --gpu-id 0
 ```
 
+## Citation
+
+```
+@inproceedings{gao2023ciba,
+  title={Backdoor Attack on Hash-based Image Retrieval via Clean-label Data Poisoning},
+  author={Gao, Kuofeng and Bai, Jiawang and Chen, Bin and Wu, Dongxian and Xia, Shu-Tao},
+  booktitle={BMVC},
+  year={2023}
+}
+```
+
 ## Acknowledgements
 
 This respository is mainly based on [DTHA](https://github.com/jiawangbai/DHTA-master). Thanks for their wonderful works!
